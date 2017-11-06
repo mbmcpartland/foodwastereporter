@@ -118,42 +118,42 @@ class Form extends Component {
         <div className="panel panel-default">
           <FormErrors formErrors={this.state.formErrors} />
         </div>
-        <div className={`form-group ${this.errorClass(this.state.formErrors.name)}`} class="specialfont">
+        <div className={`form-group ${this.errorClass(this.state.formErrors.name)}`}>
           <label htmlFor="name">Name</label>
           <input type="name" required className="form-control" name="name"
             placeholder="Name"
             value={this.state.name}
             onChange={this.handleUserInput}  />
         </div>
-        <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`} class="specialfont">
+        <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
           <label htmlFor="email">Email</label>
           <input type="email" className="form-control" name="email"
             placeholder="Email"
             value={this.state.email}
             onChange={this.handleUserInput}  />
         </div>
-        <div className={`form-group ${this.errorClass(this.state.formErrors.phone)}`} class="specialfont">
+        <div className={`form-group ${this.errorClass(this.state.formErrors.phone)}`}>
           <label htmlFor="phone">Phone Number</label>
           <input type="phone" required className="form-control" name="phone"
             placeholder="Phone"
             value={this.state.phone}
             onChange={this.handleUserInput}  />
         </div>
-        <div className={`form-group ${this.errorClass(this.state.formErrors.date)}`} class="specialfont">
+        <div className={`form-group ${this.errorClass(this.state.formErrors.date)}`}>
           <label htmlFor="date">Date</label>
           <input type="date" className="form-control" name="date"
             placeholder="Date"
             value={this.state.date}
             onChange={this.handleUserInput}  />
         </div>
-        <div className={`form-group ${this.errorClass(this.state.formErrors.time)}`} class="specialfont">
+        <div className={`form-group ${this.errorClass(this.state.formErrors.time)}`}>
           <label htmlFor="time">Time</label>
           <input type="time" required className="form-control" name="time"
             placeholder="Time"
             value={this.state.time}
             onChange={this.handleUserInput}  />
         </div>
-        <div className={`form-group ${this.errorClass(this.state.formErrors.building)}`} class="specialfont">
+        <div className={`form-group ${this.errorClass(this.state.formErrors.building)}`}>
           <label htmlFor="building">Building</label>
           <input type="building" className="form-control" name="building"
             placeholder="Building"
@@ -161,7 +161,7 @@ class Form extends Component {
             onChange={this.handleUserInput}  />
         </div>
         <br/>
-        <button type="submit" class="submitbutton" disabled={!this.state.formValid}>Submit</button>
+        <button type="submit" className="submitbutton" disabled={!this.state.formValid}>Submit</button>
         <br/>
         <br/>
         <br/>
