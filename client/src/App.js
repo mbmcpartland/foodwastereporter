@@ -6,15 +6,37 @@ import './App.css';
 import About from './About';
 import Events from './Events';
 import Form from './Form';
+import { Redirect } from 'react-router';
 import 'react-tabs/style/react-tabs.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { BrowserRouter } from 'react-router-dom'
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirect: false
+    }
+  }
+
+
+  handleOnClick = () => {
+    alert('mohamed!!!!');
+  // some action...
+  // then redirect
+  this.setState({redirect: true});
+}
+
   render() {
+    if (this.state.redirect) {
+    return <Redirect push to='Admin' />;
+  }
     return (
       <div className="App">
 
+
+      <button onClick={()=>this.handleOnClick()} className="gearButton"></button>
       <div className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
           <img src={filler} className="filler" alt="filler"/>

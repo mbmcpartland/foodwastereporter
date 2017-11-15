@@ -18,6 +18,21 @@
   font-size: large;
 }
 
+.gearButton{
+    background:url(./Pictures/gear.png) no-repeat;
+    cursor:pointer;
+    border:none;
+    margin-left: 90%;
+    margin-top: 0%;
+    width:25px;
+    height:25px;
+}
+
+.gearButton:active  /* use Dot here */
+{   
+    background:url(./Pictures/gear.png) no-repeat;
+}
+
 
 .demoForm {
   width: 80%;
