@@ -21,12 +21,25 @@ class App extends Component {
   }
 
 
-  handleOnClick = () => {
-    alert('mohamed!!!!');
-  // some action...
-  // then redirect
-  this.setState({redirect: true});
-}
+handleOnClick = () => {
+    var txt;
+    var pass = prompt("Please enter the password:");
+
+    if(pass == null || pass == "") {
+      pass = "66";
+    }
+
+    var reroute = 'api/auth?pass='+pass;
+    
+    fetch(reroute, 
+    {
+       accept: 'application/json',
+    });
+    return fetch('/api/auth', {
+        accept: 'application/json',
+    });
+  // this.setState({redirect: true});
+  }
 
   render() {
     if (this.state.redirect) {

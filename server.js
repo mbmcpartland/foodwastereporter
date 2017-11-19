@@ -20,19 +20,59 @@ const host = "localhost"
 const user = "root"
 const pswd = ""
 const dbname = "books"
+var correct_password = "";
 
 // config db ====================================
-const pool = mysql.createPool({
+// const pool = mysql.createPool({
+//   host: "frn.c7iflgbhvhqx.us-west-1.rds.amazonaws.com",
+//   user: "frncsteam",
+//   password: "GraceH0ppah",
+//   database: "frn"
+// });
+
+const COLUMNS = [
+  'last_name',
+  'first_name'
+];
+
+var con = mysql.createConnection({
   host: "frn.c7iflgbhvhqx.us-west-1.rds.amazonaws.com",
   user: "frncsteam",
   password: "GraceH0ppah",
   database: "frn"
 });
 
-const COLUMNS = [
-  'last_name',
-  'first_name'
-];
+con.connect(function(err) {
+  if (err) throw err;
+  con.query("SELECT * FROM credential", function (err, result, fields) {
+    if (err) throw err;
+    var string=JSON.stringify(result);
+    var json =  JSON.parse(string);
+    correct_password = json[0].hash;
+    console.log(correct_password);
+  });
+});
+
+app.get('/api/auth', (req, res) => {
+  const pass = req.query.pass;
+  var crypto = require('crypto');
+  if(undefined === pass) {
+    return;
+  }
+  var enc = crypto.createHash('md5').update(pass).digest("hex");
+  if(undefined === enc) {
+    return;
+  }
+  if(enc !== correct_password) {
+    console.log('incorrect password bub!');
+    res.write('fail');
+    res.send();
+  } else {
+    console.log('correct password!');
+    res.write('success');
+    res.send();
+  }
+});
 
 app.get('/api/books', (req, res) => {
 
