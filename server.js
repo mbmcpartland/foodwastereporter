@@ -53,7 +53,7 @@ con.connect(function(err) {
   });
 });
 
-app.get('/api/auth', (req, res) => {
+app.use('/api/auth', function(req, res) {
   const pass = req.query.pass;
   var crypto = require('crypto');
   if(undefined === pass) {
@@ -65,12 +65,12 @@ app.get('/api/auth', (req, res) => {
   }
   if(enc !== correct_password) {
     console.log('incorrect password bub!');
-    res.write('fail');
-    res.send();
+    res.statusMessage = 'Nothing';
+    res.send({ message: 'fail' });
   } else {
     console.log('correct password!');
-    res.write('success');
-    res.send();
+    res.statusMessage = 'Nothing';
+    res.send({ message: 'success' });
   }
 });
 

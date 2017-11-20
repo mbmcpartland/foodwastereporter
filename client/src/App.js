@@ -30,13 +30,13 @@ handleOnClick = () => {
     }
 
     var reroute = 'api/auth?pass='+pass;
-    
-    fetch(reroute, 
-    {
-       accept: 'application/json',
-    });
-    return fetch('/api/auth', {
+
+    return fetch(reroute, {
         accept: 'application/json',
+    }).then(function(res) {
+      return res.json();
+    }).then(function(json) {
+      console.log(json);
     });
   // this.setState({redirect: true});
   }
