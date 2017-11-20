@@ -9,7 +9,12 @@ import Form from './Form';
 import { Redirect } from 'react-router';
 import 'react-tabs/style/react-tabs.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import { BrowserRouter } from 'react-router-dom';
+
+var global = "";
+
+function changeState(that) {
+  that.setState({redirect: true});
+}
 
 class App extends Component {
   constructor(props) {
@@ -19,53 +24,53 @@ class App extends Component {
     }
   }
 
-thatCouldWorkbutProbablyWont() {
-  setState({redirect: true});
-}
+func(callback) {
+  var pass = prompt("Please enter the password:");
 
-handleOnClick = () => {
-    var txt;
-    var pass = prompt("Please enter the password:");
-
-    if(pass == null || pass == "") {
-      pass = "66";
-    }
-
-    var reroute = 'api/auth?pass='+pass;
-
-    fetch(reroute, {
-        accept: 'application/json',
-    }).then(function(res) {
-      return res.json();
-    }).then(function(json) {
-      var string = JSON.stringify(json);
-      var mohamed = JSON.parse(string);
-      var result = mohamed.message;
-      if(result === 'success') {
-        console.log('mohamed told me to');
-        thatCouldWorkbutProbablyWont();
-        global = "success";
-      } else {
-        global = "fail";
-        alert('incorrect password bitchhhhh');
-      }
-    });
-
-    // if(global === "success") {
-
-    //   this.setState({redirect: true});
-    // }
+  if(pass === null || pass === "") {
+     return;
   }
 
+  var reroute = 'api/auth?pass='+pass;
+
+  fetch(reroute, {
+     accept: 'application/json',
+  }).then(function(res) {
+     return res.json();
+  }).then(function(json) {
+     var string = JSON.stringify(json);
+     var mohamed = JSON.parse(string);
+     var result = mohamed.message;
+     if(result === 'success') {
+       console.log('mohamed told me to');
+       global = "success";
+     } else {
+       global = "fail";
+       alert('incorrect password bitchhhhh');
+     }
+     callback();
+  });
+}
+
+handleOnClick = (that) => {
+    this.func(function() {
+      if(global === "success") {
+        console.log('here?')
+        changeState(that);
+      }
+      console.log('here?')
+    });
+}
   render() {
     if (this.state.redirect) {
     return <Redirect push to='Admin' />;
     }
+    var that = this;
     return (
       <div className="App">
 
 
-      <button onClick={()=>this.handleOnClick()} className="gearButton"></button>
+      <button onClick={()=>this.handleOnClick(that)} className="gearButton"></button>
       <div className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
           <img src={filler} className="filler" alt="filler"/>
