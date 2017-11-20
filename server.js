@@ -51,7 +51,7 @@ con.connect(function(err) {
     correct_password = json[0].hash;
     console.log(correct_password);
   });
-});
+});   //move this
 
 app.use('/api/auth', function(req, res) {
   const pass = req.query.pass;
