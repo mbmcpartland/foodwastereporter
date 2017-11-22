@@ -1,0 +1,25 @@
+.onSubmit {
+	width: 80%;
+	margin: auto;
+}
+
+@media screen and (min-width: 480px) {
+    .onSubmit {
+        width:40%;
+        margin: auto;
+    }
+}
+
+.submitbutton {
+    background-color: #27a348;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    padding: 1.5% 8%;
+    text-align: center;
+    display: inline-block;
+    font-size: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}

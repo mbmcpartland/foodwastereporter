@@ -1,0 +1,47 @@
+.App {
+  text-align: center; 
+}
+
+.App-logo {
+  height: 130px;
+}
+
+.App-header {
+  background-color: #ffffff;
+/*  height: 150px;
+  padding: 10px;*/
+  margin-bottom:30px;
+  margin-top:50px;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.gearButton{
+    background:url(./Pictures/gear.png) no-repeat;
+    cursor:pointer;
+    border:none;
+    margin-left: 90%;
+    margin-top: 0%;
+    width:25px;
+    height:25px;
+}
+
+.gearButton:active  /* use Dot here */
+{   
+    background:url(./Pictures/gear.png) no-repeat;
+}
+
+
+.demoForm {
+  width: 80%;
+  margin: auto;
+}
+
+@media screen and (min-width: 480px) {
+    .demoForm {
+        width:40%;
+        margin: auto;
+    }
+}
