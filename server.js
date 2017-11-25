@@ -83,7 +83,7 @@ app.get('/api/books', (req, res) => {
 
   queryString = "SELECT * FROM user"
 
-  pool.query(queryString,function (err, result, fields) {
+  con.query(queryString,function (err, result, fields) {
     if (err) throw err;
     console.log(result);
 
@@ -102,7 +102,7 @@ app.get('/api/insert', (req, res) => {
 
   queryString = "INSERT INTO user (phone_number, email) VALUES ('" + phone +  "', '" + email + "')"
 
-  pool.query(queryString,function (err, result, fields) {
+  con.query(queryString,function (err, result, fields) {
     if (err) throw err;
     console.log(result);
 
@@ -110,10 +110,61 @@ app.get('/api/insert', (req, res) => {
 
 });
 
+app.use('/api/users', (req, res) => {
+    console.log("sup bitch");
 
+    queryString = `SELECT * from user`;
 
+    con.query(queryString,
+	      function(err, rows, fields) {
+		  if (err) throw err;
+		  var string=JSON.stringify(rows);
+		  var json =  JSON.parse(string);
+		  //console.log(json);
 
-app.use('/api/events', (req, res) => {
+		  res.statusMessage = 'okeh';
+		  res.send(json);
+	      });
+
+});
+
+app.use('/api/building', (req, res) => {
+    console.log("sup bitch");
+
+    queryString = `SELECT * from building`;
+
+    con.query(queryString,
+	      function(err, rows, fields) {
+		  if (err) throw err;
+		  var string=JSON.stringify(rows);
+		  var json =  JSON.parse(string);
+		  //console.log(json);
+
+		  res.statusMessage = 'okeh';
+		  res.send(json);
+	      });
+
+});
+
+app.use('/api/getevents', (req, res) => {
+    console.log("sup bitch");
+
+    queryString = `SELECT * from event`;
+
+    con.query(queryString,
+	      function(err, rows, fields) {
+		  if (err) throw err;
+		  var string=JSON.stringify(rows);
+		  var json =  JSON.parse(string);
+		  //console.log(json);
+
+		  res.statusMessage = 'okeh';
+		  res.send(json);
+	      });
+
+});
+
+app.use('/api/reports', (req, res) => {
   console.log("sup bitch");
 
   queryString = `SELECT * from report`;
@@ -123,7 +174,7 @@ app.use('/api/events', (req, res) => {
           if (err) throw err;
           var string=JSON.stringify(rows);
           var json =  JSON.parse(string);
-          console.log(json);
+          //console.log(json);
 
           res.statusMessage = 'okeh';
           res.send(json);

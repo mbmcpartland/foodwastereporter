@@ -35,7 +35,7 @@ class Form extends Component {
       console.log(x);
       console.log(y);
 
-      var reroute = '/api/insert?email='+y+'&&phone='+x;
+      var reroute = 'api/insert?email='+y+'&&phone='+x;
 
       fetch(hosturl + reroute, 
       {
