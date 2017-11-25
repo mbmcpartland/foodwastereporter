@@ -1,9 +1,12 @@
 const express = require('express');
 //const fs = require('fs');
 const mysql = require('mysql');
+var cors = require('cors');
 const app = express();
 
-app.set('port', (process.env.PORT || 3001));
+app.use(cors());
+
+app.set('port', (process.env.PORT || 3000));
 
 // Express only serves static assets in production
 console.log("NODE_ENV: ", process.env.NODE_ENV);
@@ -106,6 +109,29 @@ app.get('/api/insert', (req, res) => {
       });
 
 });
+
+
+
+
+app.use('/api/events', (req, res) => {
+  console.log("sup bitch");
+
+  queryString = `SELECT * from user`;
+  
+  con.query(queryString,
+         function(err, rows, fields) {
+          if (err) throw err;
+          var string=JSON.stringify(rows);
+          var json =  JSON.parse(string);
+          //console.log(json);
+
+          res.statusMessage = 'okeh';
+          res.send(json);
+      });
+
+});
+
+
 
 app.listen(app.get('port'), () => {
   console.log(`Find the server at: http://localhost:${app.get('port')}/`); // eslint-disable-line no-console
