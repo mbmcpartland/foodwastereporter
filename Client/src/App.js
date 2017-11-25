@@ -57,10 +57,8 @@ func(callback) {
 handleOnClick = (that) => {
     this.func(function() {
       if(global === "success") {
-        console.log('here?')
         changeState(that);
       }
-      console.log('here?')
     });
 }
   render() {

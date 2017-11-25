@@ -116,14 +116,14 @@ app.get('/api/insert', (req, res) => {
 app.use('/api/events', (req, res) => {
   console.log("sup bitch");
 
-  queryString = `SELECT * from user`;
+  queryString = `SELECT * from report`;
   
   con.query(queryString,
          function(err, rows, fields) {
           if (err) throw err;
           var string=JSON.stringify(rows);
           var json =  JSON.parse(string);
-          //console.log(json);
+          console.log(json);
 
           res.statusMessage = 'okeh';
           res.send(json);
