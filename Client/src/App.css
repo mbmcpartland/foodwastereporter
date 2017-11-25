@@ -1,17 +1,27 @@
+body, ul {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  text-align: center; 
+  text-align: center;
+  margin-top: 0;
 }
 
 .App-logo {
-  height: 130px;
+  height: 100px;
 }
 
 .App-header {
   background-color: #ffffff;
 /*  height: 150px;
   padding: 10px;*/
-  margin-bottom:30px;
-  margin-top:50px;
+  margin-bottom:20px;
+  margin-top:0%;
+}
+
+.filler {
+  width: 30px;
 }
 
 .App-intro {
@@ -23,7 +33,7 @@
     cursor:pointer;
     border:none;
     margin-left: 90%;
-    margin-top: 0%;
+    margin-top: -50px;
     width:25px;
     height:25px;
 }

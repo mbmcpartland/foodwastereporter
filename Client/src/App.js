@@ -68,8 +68,6 @@ handleOnClick = (that) => {
     var that = this;
     return (
       <div className="App">
-
-
       <button onClick={()=>this.handleOnClick(that)} className="gearButton"></button>
       <div className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
