@@ -12,7 +12,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 var global = "";
 
-var hosturl = "http://ec2-54-215-128-177.us-west-1.compute.amazonaws.com:3000/";
+// var hosturl = "http://ec2-54-215-128-177.us-west-1.compute.amazonaws.com:3000/";
 
 function changeState(that) {
   that.setState({redirect: true});
@@ -35,7 +35,7 @@ func(callback) {
 
   var reroute = 'api/auth?pass='+pass;
 
-  fetch(hosturl + reroute, {
+  fetch(reroute, {
      accept: 'application/json',
   }).then(function(res) {
      return res.json();
