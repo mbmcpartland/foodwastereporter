@@ -67,7 +67,7 @@ app.use('/api/auth', function(req, res) {
     return;
   }
   if(enc !== correct_password) {
-    console.log('incorrect password bub!');
+    console.log('incorrect password!');
     res.statusMessage = 'Nothing';
     res.send({ message: 'fail' });
   } else {
@@ -111,7 +111,7 @@ app.get('/api/insert', (req, res) => {
 });
 
 app.use('/api/users', (req, res) => {
-    console.log("sup bitch");
+    console.log("/api/users accessed");
 
     queryString = `SELECT * from user`;
 
@@ -129,7 +129,7 @@ app.use('/api/users', (req, res) => {
 });
 
 app.use('/api/building', (req, res) => {
-    console.log("sup bitch");
+    console.log("/api/building accessed");
 
     queryString = `SELECT * from building`;
 
@@ -147,7 +147,7 @@ app.use('/api/building', (req, res) => {
 });
 
 app.use('/api/getevents', (req, res) => {
-    console.log("sup bitch");
+    console.log("/api/getevents accessed");
 
     queryString = `SELECT * from event`;
 
@@ -165,7 +165,7 @@ app.use('/api/getevents', (req, res) => {
 });
 
 app.use('/api/reports', (req, res) => {
-  console.log("sup bitch");
+  console.log("/api/reports accessed");
 
   queryString = `SELECT * from report`;
   

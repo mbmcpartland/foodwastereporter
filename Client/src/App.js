@@ -12,7 +12,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 var global = "";
 
-// var hosturl = "http://ec2-54-215-128-177.us-west-1.compute.amazonaws.com:3000/";
+var hosturl = "http://ec2-54-215-128-177.us-west-1.compute.amazonaws.com:3000/";
 
 function changeState(that) {
   that.setState({redirect: true});
@@ -35,7 +35,7 @@ func(callback) {
 
   var reroute = 'api/auth?pass='+pass;
 
-  fetch(reroute, {
+  fetch(hosturl + reroute, {
      accept: 'application/json',
   }).then(function(res) {
      return res.json();
@@ -44,11 +44,11 @@ func(callback) {
      var mohamed = JSON.parse(string);
      var result = mohamed.message;
      if(result === 'success') {
-       console.log('mohamed told me to');
+       console.log('password authenticated');
        global = "success";
      } else {
        global = "fail";
-       alert('incorrect password bitchhhhh');
+       alert('incorrect password');
      }
      callback();
   });

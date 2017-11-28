@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { FormErrors } from './FormErrors';
 import './Form.css'; 
 
+var hosturl = "http://ec2-54-215-128-177.us-west-1.compute.amazonaws.com:3000/";
+
 class Form extends Component {
   constructor (props) {
     super(props);
@@ -35,7 +37,7 @@ class Form extends Component {
 
       var reroute = 'api/insert?email='+y+'&&phone='+x;
 
-      fetch(reroute, 
+      fetch(hosturl + reroute, 
       {
         accept: 'application/json',
       });
