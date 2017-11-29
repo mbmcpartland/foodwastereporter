@@ -39,10 +39,11 @@ class Form extends Component {
       {
         accept: 'application/json',
       });
-      return fetch(`/api/books`, { 
+      fetch(`/api/books`, { 
         accept: 'application/json',
       });
     alert("Thank you for the submission!")
+    return;
   }
 
 
