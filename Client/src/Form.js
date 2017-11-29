@@ -27,8 +27,6 @@ class Form extends Component {
 
   handleSubmit(e)
   {
-      alert("Thank you for the submission!")
-      e.preventDefault();
       var x = e.target.phone.value;
       var y = e.target.email.value;
 
@@ -44,6 +42,7 @@ class Form extends Component {
       return fetch(`/api/books`, { 
         accept: 'application/json',
       });
+    alert("Thank you for the submission!")
   }
 
 
