@@ -33,17 +33,25 @@ class Form extends Component {
   {
       var x = e.target.phone.value;
       var y = e.target.email.value;
+      var dat = e.target.date.value;
+      var loc = e.target.location.value;
+      var desc = e.target.description.value;
 
       console.log(x);
       console.log(y);
 
       var reroute = 'api/insert?email='+y+'&&phone='+x;
+      var rerouteReport = 'api/insertReport?date='+ dat +'&&location='+ loc +'&&description='+ desc;
 
       fetch(hosturl + reroute, 
       {
         accept: 'application/json',
       });
       fetch(`/api/books`, { 
+        accept: 'application/json',
+      });
+      fetch(hosturl + rerouteReport, 
+      {
         accept: 'application/json',
       });
     alert("Thank you for the submission!")
