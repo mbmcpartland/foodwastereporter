@@ -15,7 +15,8 @@ class Form extends Component {
       time: '',
       building: '',
       desription: '',
-      formErrors: {name: '', email: '', phone: '', date: '', time: '', building: '', description: ''},
+      location: '',
+      formErrors: {name: '', email: '', phone: '', date: '', time: '', building: '', description: '', location: ''},
       nameValid: false,
       emailValid: false,
       phoneValid: false,
@@ -23,6 +24,7 @@ class Form extends Component {
       timeValid: false,
       buildingValid: false,
       descriptionValid: false,
+      locationValid: false,
       formValid: false
     }
   }
@@ -65,6 +67,7 @@ class Form extends Component {
     let timeValid = this.state.timeValid;
     let buildingValid = this.state.buildingValid;
     let descriptionValid = this.state.descriptionValid;
+    let locationValid = this.state.locationValid;
 
     switch(fieldName) {
       case 'email':
@@ -94,6 +97,10 @@ class Form extends Component {
         descriptionValid = value.length >= 10;
         fieldValidationErrors.description = descriptionValid ? '': 'Food Description too short; please be more descriptive';
         break;
+      case 'location':
+        locationValid = value.length >= 3;
+        fieldValidationErrors.location = locationValid ? '': 'Food location too short; please be more descriptive';
+        break;
       default:
         break;
     }
@@ -105,12 +112,13 @@ class Form extends Component {
                     timeValid: timeValid,
                     buildingValid: buildingValid,
                     descriptionValid: descriptionValid,
+                    locationValid: locationValid,
                   }, this.validateForm);
   }
 
   validateForm() {
     this.setState({formValid: this.state.nameValid && this.state.emailValid && this.state.phoneValid &&
-      this.state.dateValid && this.state.timeValid && this.state.buildingValid && this.state.descriptionValid});
+      this.state.dateValid && this.state.timeValid && this.state.buildingValid && this.state.descriptionValid && this.state.locationValid });
   }
 
   errorClass(error) {
@@ -174,6 +182,13 @@ class Form extends Component {
           <input type="description" className="form-control" name="description"
             placeholder="Food Description"
             value={this.state.description}
+            onChange={this.handleUserInput}  />
+        </div>
+        <div className={`form-group ${this.errorClass(this.state.formErrors.location)}`}>
+          <label htmlFor="location">Food Location</label>
+          <input type="location" className="form-control" name="location"
+            placeholder="Room No. (LS307) or Area (Gleeson Lawn)"
+            value={this.state.location}
             onChange={this.handleUserInput}  />
         </div>
         <br/>
