@@ -14,13 +14,15 @@ class Form extends Component {
       date: '',
       time: '',
       building: '',
-      formErrors: {name: '', email: '', phone: '', date: '', time: '', building: ''},
+      desription: '',
+      formErrors: {name: '', email: '', phone: '', date: '', time: '', building: '', description: ''},
       nameValid: false,
       emailValid: false,
       phoneValid: false,
       dateValid: false,
       timeValid: false,
       buildingValid: false,
+      descriptionValid: false,
       formValid: false
     }
   }
@@ -62,6 +64,7 @@ class Form extends Component {
     let dateValid = this.state.dateValid;
     let timeValid = this.state.timeValid;
     let buildingValid = this.state.buildingValid;
+    let descriptionValid = this.state.descriptionValid;
 
     switch(fieldName) {
       case 'email':
@@ -87,6 +90,10 @@ class Form extends Component {
         buildingValid = value.length >= 4;
         fieldValidationErrors.building = buildingValid ? '': 'Building name too short; please reenter';
         break;
+      case 'description':
+        descriptionValid = value.length >= 10;
+        fieldValidationErrors.description = descriptionValid ? '': 'Food Description too short; please be more descriptive';
+        break;
       default:
         break;
     }
@@ -96,13 +103,14 @@ class Form extends Component {
                     phoneValid: phoneValid,
                     dateValid: dateValid,
                     timeValid: timeValid,
-                    buildingValid: buildingValid
+                    buildingValid: buildingValid,
+                    descriptionValid: descriptionValid,
                   }, this.validateForm);
   }
 
   validateForm() {
     this.setState({formValid: this.state.nameValid && this.state.emailValid && this.state.phoneValid &&
-      this.state.dateValid && this.state.timeValid && this.state.buildingValid});
+      this.state.dateValid && this.state.timeValid && this.state.buildingValid && this.state.descriptionValid});
   }
 
   errorClass(error) {
@@ -159,6 +167,13 @@ class Form extends Component {
           <input type="building" className="form-control" name="building"
             placeholder="Building"
             value={this.state.building}
+            onChange={this.handleUserInput}  />
+        </div>
+        <div className={`form-group ${this.errorClass(this.state.formErrors.description)}`}>
+          <label htmlFor="description">Food Description</label>
+          <input type="description" className="form-control" name="description"
+            placeholder="Food Description"
+            value={this.state.description}
             onChange={this.handleUserInput}  />
         </div>
         <br/>
