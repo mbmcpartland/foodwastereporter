@@ -110,21 +110,38 @@ app.get('/api/insert', (req, res) => {
 
 });
 
+app.get('/api/insertReport', (req, res) => {
+
+  const date = req.query.date;
+  const location = req.query.location;
+  const description = req.query.description;
+
+
+  queryString = "INSERT INTO report (time_created, location, descrition) VALUES ('" + date +  "', '" + location + "', '" + description + "')"
+
+  con.query(queryString,function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+
+      });
+
+});
+
 app.use('/api/users', (req, res) => {
     console.log("/api/users accessed");
 
     queryString = `SELECT * from user`;
 
     con.query(queryString,
-	      function(err, rows, fields) {
-		  if (err) throw err;
-		  var string=JSON.stringify(rows);
-		  var json =  JSON.parse(string);
-		  //console.log(json);
+        function(err, rows, fields) {
+      if (err) throw err;
+      var string=JSON.stringify(rows);
+      var json =  JSON.parse(string);
+      //console.log(json);
 
-		  res.statusMessage = 'okeh';
-		  res.send(json);
-	      });
+      res.statusMessage = 'okeh';
+      res.send(json);
+        });
 
 });
 
@@ -134,15 +151,15 @@ app.use('/api/building', (req, res) => {
     queryString = `SELECT * from building`;
 
     con.query(queryString,
-	      function(err, rows, fields) {
-		  if (err) throw err;
-		  var string=JSON.stringify(rows);
-		  var json =  JSON.parse(string);
-		  //console.log(json);
+        function(err, rows, fields) {
+      if (err) throw err;
+      var string=JSON.stringify(rows);
+      var json =  JSON.parse(string);
+      //console.log(json);
 
-		  res.statusMessage = 'okeh';
-		  res.send(json);
-	      });
+      res.statusMessage = 'okeh';
+      res.send(json);
+        });
 
 });
 
@@ -152,15 +169,15 @@ app.use('/api/getevents', (req, res) => {
     queryString = `SELECT * from event`;
 
     con.query(queryString,
-	      function(err, rows, fields) {
-		  if (err) throw err;
-		  var string=JSON.stringify(rows);
-		  var json =  JSON.parse(string);
-		  //console.log(json);
+        function(err, rows, fields) {
+      if (err) throw err;
+      var string=JSON.stringify(rows);
+      var json =  JSON.parse(string);
+      //console.log(json);
 
-		  res.statusMessage = 'okeh';
-		  res.send(json);
-	      });
+      res.statusMessage = 'okeh';
+      res.send(json);
+        });
 
 });
 
