@@ -3,6 +3,14 @@
     margin: auto;
 }
 
+.underline {
+	text-decoration: underline;
+}
+
+.rightalign {
+	text-align: right;
+}
+
 .accomplished {
 	font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;

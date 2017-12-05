@@ -10,71 +10,52 @@ class About extends Component {
         <div>
           <img src={ourStory} className="picture" alt="ourstory"/>
         </div>
+        <br>
+        </br>
+        <p>The <strong>Food Recovery Network (FRN)</strong> is the largest student-led movement 
+        fighting food waste and hunger in the US. Founded by students at the 
+        University of Maryland in 2011, FRN has since expanded to 230 chapters 
+        across the nation and diverted more than 2 million pounds of food from 
+        landfill. </p>
         <br> 
         </br>
-        <p><strong>Food Recovery Network</strong> is the largest student 
-        movement against food waste and hunger in America. </p>
+        <p>At USF, the Food Recovery Network is a registered student organization 
+        that has been recovering excess food for <strong> over three years </strong> and donating it 
+        to San Franciscans who struggle with food insecurity. FRN recovers most of 
+        its food from Market Café on campus. However, FRN also recovers food from 
+        farmers markets, wholesale produce distributors, and bagel shops.</p>
         <br> 
         </br>
-        <p>In <strong>2011</strong>, Ben Simon, Mia Zavalij and Cam Pascual, students at 
-        the University of Maryland, College Park noticed good dining hall 
-        food ending up in the trash at the end of the night. By the end 
-        of the school year, FRN at UMD had recovered 30,000 meals to DC-area 
-        hunger-fighting nonprofits. </p>
+        <p> FRN volunteers recover between 60-150 pounds of perishable food from 
+        Market Café each night, three nights a week. Recovered food is stored 
+        overnight, then reheated and prepared for donation and service the following 
+        night. Food donations are held at a different locations in San Francisco each 
+        night, and FRN typically feeds about <strong>100</strong> people at each location.</p>
         <br> 
         </br>
-        <p>During the Spring <strong>2012</strong> semester, the second FRN chapter was 
-        founded at Brown University, and the two schools joined forces with two other 
-        campus food recovery programs at University of California, Berkeley and Pomona 
-        College. </p>
-        <br> 
-        </br>
-        <p> In May <strong>2013</strong>, the Sodexo Foundation provided FRN with founding 
-        funding to hire a full-time staff and transition into a professional nonprofit! 
-        <strong> Since then</strong>, we have swept the nation and made higher education 
-        the first sector where food recovery is the norm and not the exception. </p>
-        <br> 
-        </br>
-        <p>Find out more about our chapters
-        <a href="https://www.foodrecoverynetwork.org/chapters"> here.</a>
+        <p> During the 2016-17 academic year, FRN recovered and donated nearly <strong>13,500 
+        pounds of food. </strong>
         </p>
-        <br> 
-        </br>
-        <div>
-          <img src={ourImpact} className="picture" alt="ourimpact"/>
+        <div className="underline">
+            <h1> DONATION SCHEDULE </h1>
         </div>
-        <br> 
+        <h3> Tuesdays </h3>
+        <p> (Faithful Fools - Tenderloin) </p>
+        <p> <strong>5:30pm to 8pm</strong> </p>
+
+        <h3> Wednesdays </h3>
+        <p> (Civic Center Plaza) </p>
+        <p> <strong>5:30pm to 7:30pm</strong> </p>
+
+        <h3> Thursdays </h3>
+        <p> (SF Night Ministry - 16th and Mission) </p>
+        <p> <strong>6pm to 8pm</strong> </p>
+
+        <p><strong>All donations meet at, and leave from, the loading dock at UC. </strong></p>
+        <br>
         </br>
-        <p>In September 2011 Food Recovery Network (FRN) was founded as a student group at 
-        the University of Maryland.</p>
-        <br> 
-        </br>
-        <p> Today, we are the largest student movement against food waste and hunger and have 
-        recovered and donated <strong>more than 2 million pounds of food</strong> that otherwise 
-        would have gone to waste. That is more than <strong>1.8 million meals</strong> that has 
-        gone to those in need. </p>
-        <br> 
-        </br>
-        <div className = "accomplished">
-        <h4><strong>Check out what we have accomplished:</strong></h4>
-        </div>
-        <br> 
-        </br>
-        <list>
-        <li><a target="_blank" href="https://www.foodrecoverynetwork.org/annualreports">Annual Reports</a></li>
-        <br> 
-        </br>
-        <li><a target="_blank" href="https://static1.squarespace.com/static/555b5cf1e4b0864ccf1a0156/t/5967e02546c3c4bdad4673cf/149997981
-        4578/PA+Survey+Report_2017_External.pdf">2017 Partner Agency Report</a></li>
-        <br> 
-        </br>
-        <li><a target="_blank" href="https://www.foodrecoverynetwork.org/faq">FAQ</a></li>
-        </list>
-        <br> 
-        </br>
-        <br> 
-        </br>
-        <br> 
+        <li><a target="_blank" href="http://www.frnusfca.com">Visit our Website</a></li>
+        <br>
         </br>
       </div>
     )
