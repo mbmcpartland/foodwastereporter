@@ -9,6 +9,9 @@ import Form from './Form';
 import { Redirect } from 'react-router';
 import 'react-tabs/style/react-tabs.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { BrowserRouter as Router} from 'react-router-dom';
+
+ReactDOM.render(<Router basename={process.env.PUBLIC_URL}>< App /></Router>, document.getElementById('root'));
 
 var global = "";
 

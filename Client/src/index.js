@@ -13,6 +13,8 @@ import mainReducer from './Reducers'
 
 //import watchFetchSearchData from './Sagas.js'
 
+ReactDOM.render(<Router basename={process.env.PUBLIC_URL}>< App /></Router>, document.getElementById(‘root’));
+
 
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
