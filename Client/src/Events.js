@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './Form.css'; 
+import './Events.css'; 
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import getInvolved from './Pictures/events_picture.png';
 
-var hosturl = "http://ec2-54-215-128-177.us-west-1.compute.amazonaws.com:3000/";
+var hosturl = "http://localhost:3000/";
 
 class About extends Component {
   constructor(props) {
@@ -35,34 +36,37 @@ class About extends Component {
         </div>
         )
     } else {
-      const eventsinfo = this.state.events;
+      const eventsList = this.state.events.map(function(item) {
+        
+        return (<div>
+          <div style = {{'border-style': 'solid', 'border-radius': '21px 21px 21px 21px', 'border-color': '#27a348'}}>
+          <div style = {{'font-size': '19px',
+               'font-family': 'Palatino, Arial, sans-serif',
+                'color': 'black',
+                'padding': '1% 1%',}}><strong>{item.name}</strong></div>
+          <div style = {{
+            'font-family': 'Palatino, Arial, sans-serif',
+          'display': 'inline-block',
+          'font-style': 'italic',
+          'border-radius': '5px 5px 5px 5px',
+          'color': 'black',
+          'padding': '3% 6%',
+          'margin-bottom': '1%',
+          'font-size': '15px'}}>Description: {item.description}</div>
+          </div>
+          <br/>
+          <br/>
+          </div>);
+      });
       return (
+        <div className="events">
         <div>
-          <ReactTable
-          data={eventsinfo}
-          columns={[
-            {
-              Header: "Events",
-              columns: [
-                {
-                  Header: "Name",
-                  accessor: "name",
-                },
-                {
-                  Header: "Description",
-                  accessor: "description",
-                },
-                {
-                  Header: "Event ID",
-                  accessor: "event_id",
-                },
-              ]
-            }
-          ]}
-          defaultPageSize={10}
-          className="-striped -highlight"
-        />
-        <br />
+          <img src={getInvolved} className="test" alt="getInvolved"/>
+        </div>
+        <br/>
+        <div style = {{'font-size': '21px', 'font-family': 'Palatino, Arial, sans-serif', 'font-style': 'italic'}}>USF Food Recovery Network Events</div>
+        <br/>
+        <ul>{eventsList}</ul>
         </div>
       );
   }

@@ -3,7 +3,7 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 import './Admin.css';
 
-var hosturl = "http://ec2-54-215-128-177.us-west-1.compute.amazonaws.com:3000/";
+var hosturl = "http://localhost:3000/";
 
 class Admin extends Component {
   constructor(props) {
